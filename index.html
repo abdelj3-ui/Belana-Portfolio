@@ -176,7 +176,22 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;paddin
 /* Images et vidéos toujours proportionnelles */
 img, video{ max-width:100%; height:auto; }
 
-/* (le design téléphone se trouve en bas de la feuille de style) */
+/* Sur téléphone et petites tablettes */
+@media (max-width:768px){
+  .gallery{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:20px;
+    padding:12px !important;
+    border-width:4px !important;
+  }
+  .gcol, .gcar{ width:100% !important; max-width:100% !important; }
+  .gslide img{ width:100%; height:100%; object-fit:cover; }
+
+  .contact{ grid-template-columns:1fr !important; }
+  .wrap{ padding-left:16px; padding-right:16px; }
+  h2.title{ font-size:clamp(28px, 9vw, 48px); }
+}
 .tab{
   width: min(591px, 92vw)!important; height: auto !important; aspect-ratio: 591/147; max-width: 92vw;
 }
@@ -184,94 +199,78 @@ img, video{ max-width:100%; height:auto; }
   width: 100% !important; height: 100% !important; object-fit: contain; display: block;
 }
 
-/* =====================================================
-   DESIGN TÉLÉPHONE — n'affecte pas la version ordinateur
-   ===================================================== */
-
-/* Tablettes et téléphones : menu défilant à la place du menu caché */
-@media (max-width:900px){
-  .nav{flex-wrap:wrap;row-gap:12px;padding:16px 0 6px}
-  .nav nav{order:3;width:100%;min-width:0}
-  .nav ul{display:flex !important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100%}
-  .nav ul::-webkit-scrollbar{display:none}
-  .nav ul li{flex:0 0 auto}
-  .nav ul a{white-space:nowrap;padding:8px 14px}
-}
-
-/* Téléphones */
+/* En-tête empilé sur téléphone (l'ordinateur reste inchangé) */
 @media (max-width:768px){
-  body{font-size:1rem;overflow-x:hidden}
-  .wrap{width:calc(100% - 32px)}
-  .section{padding-top:64px}
-  .section h2.title{font-size:clamp(2rem,10vw,2.6rem);max-width:none}
-  .lead{font-size:.98rem}
-
-  /* Accueil */
-  .hero-shell{padding:8px}
-  .hero{border-radius:28px;padding-bottom:112px}
-  .brand{width:60px;height:60px;object-fit:contain}
-  .nav .btn{padding:9px 16px;font-size:.88rem}
-  .hero-grid{gap:22px}
-  .hero-title,.hero-text{text-align:center}
-  .hero-title h1{font-size:clamp(3.6rem,20vw,5.2rem)}
-  .wave{margin-inline:auto}
-  .fullname span{font-size:20px !important}
-  .hero-text p{margin-inline:auto}
-  .arch{width:min(280px,72%)}
-
-  /* Bandeau YouTube : s'adapte à l'écran au lieu de déborder */
-  .tab{height:auto !important;aspect-ratio:auto !important;padding:12px 12px 0}
-  .tab a{position:relative;width:100% !important;height:auto !important;aspect-ratio:559/131}
-  .tab img{position:absolute;inset:0;width:100% !important;height:100% !important}
-
-  /* À propos */
-  .about{gap:32px}
-  .tags{margin-top:22px}
-
-  /* Parcours */
-  .story{margin-top:64px;min-height:520px;border-radius:28px}
-  .slide{padding:22px 22px 88px}
-  .slide .year{font-size:clamp(3.6rem,20vw,5.5rem)}
-  .slide p{font-size:.98rem}
-  .dots{left:22px;top:22px}
-  .dots button{width:26px}
-  .arrows{right:18px;bottom:20px}
-  .arrows button{width:44px;height:44px}
-
-  /* Musique */
-  .projects{gap:14px;margin-top:28px}
-  .project{padding:22px;min-height:0}
-  .project h3{font-size:clamp(2rem,10vw,2.6rem)}
-  .project img{width:88px !important;height:88px !important}
-  .project .go{margin-top:18px}
-  .music-foot{flex-direction:column;align-items:flex-start}
-
-  /* Droit */
-  .law-grid{gap:28px}
-  .law-grid img{max-width:340px;margin-inline:auto}
-  .law-list strong{min-width:0}
-
-  /* Entrepreneuriat */
-  .biz{margin-top:64px;padding:32px 22px;border-radius:28px;gap:24px}
-
-  /* Portraits et scènes */
-  .gallery{display:grid !important;grid-template-columns:1fr !important;gap:14px;padding:12px !important;border-width:4px !important;border-radius:22px !important}
-  .gcol,.gcar{width:100% !important;max-width:100% !important}
-  .gbtns{bottom:12px;padding:0 12px}
-  .gbtns button{padding:9px 14px;font-size:.82rem}
-
-  /* Logo animé */
-  #logo video{max-width:320px !important}
-
-  /* Booking / contact */
-  .contact{grid-template-columns:1fr !important;padding:32px 20px;gap:22px;border-radius:28px}
-  .contact h2{font-size:clamp(2.6rem,15vw,3.6rem)}
-  .contact ul{align-self:stretch}
-  .contact li a{flex-wrap:wrap;gap:4px 12px;font-size:.98rem}
-  .contact li span{white-space:normal}
-
-  footer{flex-direction:column;align-items:center;text-align:center}
+  .nav{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    text-align:center;
+  }
+  .nav .brand{
+    width:auto;
+    height:70px;
+    margin:0 auto;
+  }
+  .nav nav{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+  .nav nav ul{
+    display:flex !important;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px 14px;
+    padding:10px 14px;
+    margin:0;
+    max-width:100%;
+    overflow:visible;
+  }
+  .nav nav ul li a{
+    font-size:14px;
+    padding:6px 10px;
+    white-space:nowrap;
+  }
+  .nav .btn{
+    margin:0 auto;
+  }
 }
+
+/* Accueil centré sur téléphone (l'ordinateur reste inchangé) */
+@media (max-width:768px){
+  .hero-grid{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:24px;
+  }
+  .hero-title,
+  .hero-text{
+    width:100%;
+    max-width:520px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .hero-title h1{ font-size:clamp(56px, 20vw, 96px); }
+  .hero-title .wave{ margin:12px auto; }
+  .arch{
+    width:min(320px, 80vw) !important;
+    max-width:100%;
+    margin:0 auto !important;
+  }
+  .arch img{
+    width:100% !important;
+    height:auto !important;
+    display:block;
+  }
+}
+
 </style>
 </head>
 <body>
