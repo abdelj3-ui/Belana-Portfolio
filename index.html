@@ -160,7 +160,7 @@ p{margin:0}
 .gbtns{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:space-between;align-items:center;padding:0 16px;z-index:3;pointer-events:none}
 .gbtns button{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:var(--r-pill);border:0;background:#fff;color:var(--wine);font:600 .88rem var(--body);cursor:pointer;transition:background .2s}
 .gbtns button:hover{background:var(--saffron)}
-.gcount{position:absolute;top:14px;right:14px;z-index:3;background:#ffffffd9;color:var(--wine);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:var(--r-pill)}
+.gcount{display: none !important;}
 
 /* Contact */
 .contact{margin:0 0 12px;background:var(--rose);color:var(--ink);border-radius:var(--r-xl);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
@@ -274,7 +274,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;paddin
       <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
     </a>
     <a class="project p2" href="https://youtu.be/PR80KWPuhQM?si=3TTxI9GLaOKPe1mV" target="_blank" rel="noopener" aria-label="Regarder Miadomé sur YouTube">
-      <div><div class="meta">12 décembre 2024 · Clip vidéo</div><h3>Miadomé</h3></div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px"><div><div class="meta">12 décembre 2024 · Clip vidéo</div><h3>Miadomé</h3></div>
+      <img src="assets/Miadome.jpeg" alt="Portrait de Bel’Ana" style="width: 150px; height: 150px; object-fit: cover; border-radius: 12px; flex-shrink: 0;">
+      </div>
       <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
     </a>
   </div>
@@ -308,13 +310,12 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;paddin
 </section>
 <section class="section wrap" id="galerie">
   <h2 class="title">Portraits et scènes</h2>
-  <div class="gallery">
+  <div class="gallery" style="border: 6px solid var(--wine); border-radius: 28px;padding: 20px; background: var(--wine);box-shadow: 0 10px 30px rgba(107, 63, 38, .25);">
 
     <!-- COLONNE 1 : PORTRAITS (format portrait) -->
     <div class="gcol">
-      <h3>Portraits</h3>
       <div class="gcar portrait" role="region" aria-roledescription="carrousel" aria-label="Portraits de Bel’Ana">
-        <div class="gcount"></div>
+        <div class="gcount" style="display: none"></div>
         <div class="gslide on"><img src="assets/belana-Portrait-1.jpeg" alt="Portrait 1 de Bel’Ana" loading="lazy"></div>
         <div class="gslide"><img src="assets/belana-Portrait-2.jpeg" alt="Portrait 2 de Bel’Ana" loading="lazy"></div>
         <div class="gslide"><img src="assets/belana-Portrait-3.jpeg" alt="Portrait 3 de Bel’Ana" loading="lazy"></div>
@@ -329,9 +330,8 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;paddin
 
     <!-- COLONNE 2 : SCÈNES (format paysage) -->
     <div class="gcol">
-      <h3>Scènes</h3>
       <div class="gcar landscape" role="region" aria-roledescription="carrousel" aria-label="Scènes de Bel’Ana">
-        <div class="gcount"></div>
+        <div class="gcount" style="display: none"></div>
         <div class="gslide on"><img src="assets/belana-Scene-1.jpeg" alt="Scène 1 de Bel’Ana" loading="lazy"></div>
         <div class="gslide"><img src="assets/belana-Scene-2.jpeg" alt="Scène 2 de Bel’Ana" loading="lazy"></div>
         <div class="gslide"><img src="assets/belana-Scene-3.jpeg" alt="Scène 3 de Bel’Ana" loading="lazy"></div>
