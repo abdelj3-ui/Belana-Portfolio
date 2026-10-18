@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bel’Ana — DAGBAN Bélinda Diana Ablavi : artiste chanteuse, juriste d’entreprise spécialisée en transports et logistique, entrepreneure.">
+<title>Bel’Ana | Portfolio officiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#ecdde0;      /* panneau clair, repris du rose des tenues */
+  --wine:#2e0d18;      /* bordeaux de la toge */
+  --coral:#e4486b;     /* rose vif des scènes */
+  --saffron:#f3b43f;   /* jaune des bandes kenté */
+  --paper:#ffffff;
+  --ink:#1d1418;
+  --muted:#6d5f64;
+  --r-xl:36px;--r-lg:26px;--r-pill:999px;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+h1,h2,h3{font-family:var(--display);margin:0;font-weight:800;letter-spacing:-.03em;line-height:1}
+p{margin:0}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:var(--r-pill);background:var(--wine);color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--coral)}
+.btn.light{background:#fff;color:var(--wine)}
+.btn.light:hover{background:var(--saffron)}
+.btn.ghost{background:transparent;color:var(--wine);box-shadow:inset 0 0 0 1.5px var(--wine)}
+.btn.ghost:hover{background:var(--wine);color:#fff}
+
+/* Hero */
+.hero-shell{padding:12px}
+.hero{position:relative;background:var(--rose);border-radius:var(--r-xl);overflow:hidden;padding-bottom:150px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0}
+.brand{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.02em}
+.brand i{color:var(--coral);font-style:normal}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:6px;background:#ffffffa8;border-radius:var(--r-pill);backdrop-filter:blur(8px)}
+.nav ul a{display:block;padding:8px 15px;border-radius:var(--r-pill);font-size:.9rem;font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+.nav ul a:hover{background:var(--wine);color:#fff}
+.nav .btn{padding:10px 20px}
+.hero-grid{display:grid;grid-template-columns:1fr minmax(260px,360px) 1fr;gap:36px;align-items:end;min-height:560px}
+.hero-title{align-self:center;padding-bottom:40px}
+.hero-title small{display:block;font-size:1.05rem;color:var(--muted);margin-bottom:14px}
+.hero-title h1{font-size:clamp(3.4rem,8.4vw,7rem);line-height:.88;letter-spacing:-.055em}
+.hero-title h1 b{display:block;color:var(--coral);font-weight:800}
+.fullname{margin-top:22px;font-size:.95rem;color:var(--muted)}
+.wave{display:block;width:96px;height:10px;margin-top:16px;color:#e4486b}
+.arch{border-radius:var(--r-pill) var(--r-pill) 0 0;overflow:hidden;background:#d9c3c9;aspect-ratio:3/4.1;align-self:end}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:center center;}
+.hero-text{align-self:center;padding-bottom:40px}
+.hero-text h2{font-size:1.55rem;letter-spacing:-.02em;line-height:1.12}
+.hero-text p{margin:14px 0 22px;color:#4a3d42;font-size:.98rem;max-width:34ch}
+
+/* Onglet de vignettes */
+.tab{position:absolute;left:50%;bottom:0;transform:translateX(-50%);background:var(--paper);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:16px 16px 0;display:flex;gap:12px}
+.tab::before,.tab::after{content:"";position:absolute;bottom:0;width:30px;height:30px}
+.tab::before{left:-30px;background:radial-gradient(circle at 0 0,transparent 29px,var(--paper) 30px)}
+.tab::after{right:-30px;background:radial-gradient(circle at 100% 0,transparent 29px,var(--paper) 30px)}
+.tab a{display:block;width:559px;height:131px;aspect-ratio:1.3;border-radius:16px 16px 0 0;overflow:hidden;background:#ddd}
+.tab img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tab a:hover img{transform:scale(1.06)}
+.tab a:nth-child(1) img{object-position:center 22%}.tab a:nth-child(2) img{object-position:center 18%}.tab a:nth-child(3) img{object-position:center 15%}
+
+/* Entrée de page (seule animation automatique) */
+@media (prefers-reduced-motion:no-preference){
+  .arch{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero-title h1,.hero-title small,.hero-text{animation:fade .8s .25s ease both}
+  .tab{animation:tab .8s .5s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes rise{from{transform:translateY(60px);opacity:0}}
+  @keyframes fade{from{opacity:0}}
+  @keyframes tab{from{transform:translate(-50%,100%)}}
+}
+
+/* Sections */
+.section{padding:96px 0 0}
+.section h2.title{font-size:clamp(2.1rem,4.6vw,3.6rem);max-width:15ch}
+.lead{color:var(--muted);max-width:56ch;margin-top:18px}
+
+
+/* À propos */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.about-text p{margin-top:16px;max-width:60ch}
+.about-text p:first-of-type{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.22;letter-spacing:-.02em;font-weight:600;max-width:24ch;margin-top:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tags span{padding:8px 15px;border-radius:var(--r-pill);box-shadow:inset 0 0 0 1.5px #1d141822;font-size:.88rem;font-weight:500}
+.tags span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--coral);margin-right:9px;vertical-align:middle}
+.tags span.law::before{background:var(--wine)}
+.dark-card{background:var(--wine);color:#fff;border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
+.dark-card img{width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:center 28%}
+.dark-card div{padding:22px 24px 26px}
+.dark-card h3{font-size:1.35rem;letter-spacing:-.02em}
+.dark-card p{margin-top:8px;color:#e9d3da;font-size:.95rem}
+
+
+/* Parcours (séquence réelle → carrousel) */
+.story{position:relative;margin-top:96px;border-radius:var(--r-xl);overflow:hidden;min-height:540px;background:#000;color:#fff}
+.slide{position:absolute;inset:0;display:flex;align-items:flex-end;padding:44px;opacity:0;visibility:hidden;transition:opacity .2s,visibility .4s}
+.slide.on{opacity:1;visibility:visible}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#12050bf0 8%,#12050b55 55%,transparent)}
+.slide div{position:relative;z-index:1;max-width:520px}
+.slide .year{font-family:var(--display);font-weight:800;font-size:clamp(4.5rem,13vw,9rem);line-height:.85;letter-spacing:-.06em}
+.slide p{margin-top:14px;font-size:1.05rem;color:#f4e6ea}
+.arrows{position:absolute;right:28px;bottom:32px;display:flex;gap:10px;z-index:3}
+.arrows button{width:50px;height:50px;border-radius:50%;border:0;background:#fff;color:var(--wine);cursor:pointer;font-size:1.2rem;display:grid;place-items:center;transition:background .2s}
+.arrows button:hover{background:var(--saffron)}
+.dots{position:absolute;left:44px;top:34px;display:flex;gap:8px;z-index:3}
+.dots button{width:34px;height:5px;border-radius:5px;border:0;background:#ffffff66;cursor:pointer;padding:0}
+.dots button[aria-current="true"]{background:var(--saffron)}
+
+/* Musique */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.project{border-radius:var(--r-lg);padding:32px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .25s}
+.project:hover{transform:translateY(-4px)}
+.project.p1{background:var(--saffron);color:var(--wine)}
+.project.p2{background:var(--coral);color:#fff}
+.project h3{font-size:clamp(2.6rem,6vw,4.4rem);letter-spacing:-.05em}
+.project .meta{font-weight:600;font-size:.95rem;margin-bottom:10px}
+.project .go{display:flex;justify-content:space-between;align-items:center;font-weight:600;border-top:1.5px solid currentColor;padding-top:14px;margin-top:28px}
+.music-foot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:26px}
+.music-foot p{color:var(--muted)}
+
+/* Droit */
+.law-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.law-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:var(--r-pill) var(--r-pill) var(--r-lg) var(--r-lg)}
+.law-list{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:0}
+.law-list li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-top:1.5px solid #1d141818}
+.law-list li:last-child{border-bottom:1.5px solid #1d141818}
+.law-list strong{font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em;min-width:150px}
+.law-list span{color:var(--muted);font-size:.95rem}
+.small{font-size:.85rem;color:var(--muted);margin-top:20px;max-width:58ch}
+
+/* Entrepreneuriat */
+.biz{margin-top:96px;background:var(--rose);border-radius:var(--r-xl);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.biz .note{background:#fff;border-radius:var(--r-lg);padding:26px 28px}
+.biz .note strong{font-family:var(--display);font-size:1.15rem;display:block;margin-bottom:6px}
+.biz .note p{color:#4a3d42;font-size:.97rem}
+
+/* Galerie */
+.gallery{display:grid;grid-template-columns:9fr 16fr;gap:18px;margin-top:36px;align-items:start}
+.gcol h3{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:14px}
+.gcar{position:relative;border-radius:var(--r-lg);overflow:hidden;background:#d9c3c9}
+.gcar.portrait{aspect-ratio:3/4}
+.gcar.landscape{aspect-ratio:4/3}
+.gcar .gslide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.gcar .gslide.on{opacity:1;visibility:visible}
+.gcar .gslide img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.gcar.landscape .gslide img{object-position:center center}
+.gbtns{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:space-between;align-items:center;padding:0 16px;z-index:3;pointer-events:none}
+.gbtns button{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:var(--r-pill);border:0;background:#fff;color:var(--wine);font:600 .88rem var(--body);cursor:pointer;transition:background .2s}
+.gbtns button:hover{background:var(--saffron)}
+.gcount{position:absolute;top:14px;right:14px;z-index:3;background:#ffffffd9;color:var(--wine);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:var(--r-pill)}
+
+/* Contact */
+.contact{margin:0 0 12px;background:var(--rose);color:var(--ink);border-radius:var(--r-xl);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.contact h2{font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.05em;color: var(--ink)}
+.contact h2 b{color:var(--saffron)}
+.contact .lead{color:var(--ink)}
+.contact ul{list-style:none;margin:0;padding:0;align-self:end}
+.contact li a{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid #ffffff2e;text-decoration:none;overflow-wrap:anywhere;transition:color .2s,padding .2s}
+.contact li a:hover{color:var(--coral);padding-left:8px}
+.contact li span{color:var(--ink);font-size:.9rem;white-space:nowrap}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:18px 0 30px;color:var(--muted);font-size:.85rem}
+
+/* Mobile */
+@media(max-width:900px){
+  .nav ul{display:none}
+  .hero{padding-bottom:120px}
+  .hero-grid{grid-template-columns:1fr;min-height:0;gap:20px}
+  .hero-title{padding-bottom:0;order:1}
+  .arch{order:2;width:min(300px,76%);margin-inline:auto}
+  .hero-text{order:3;padding-bottom:0}
+  .about,.law-grid,.biz,.contact{grid-template-columns:1fr}
+  .about{gap:36px}
+  .projects{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .gcar.portrait{max-width:420px;margin-inline:auto}
+  .biz,.contact{padding:36px 26px}
+  .slide{padding:26px}.dots{left:26px}
+  .arrows{right:18px;bottom:22px}
+  .law-list li{flex-direction:column;gap:2px}
+  .section{padding-top:72px}.story,.biz,.contact{margin-top:72px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero-shell">
+<header class="hero" id="accueil">
+  <div class="wrap">
+    <div class="nav">
+      <img class="brand" src="assets/B.28.06.2025.png" alt="logo" width="100" height="100">
+      <nav aria-label="Navigation principale"><ul>
+        <li><a href="#profil">Profil</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#musique">Musique</a></li><li><a href="#droit">Droit</a></li><li><a href="#entrepreneuriat">Entrepreneuriat</a></li>
+      </ul></nav>
+      <a class="btn" href="#contact">Me contacter</a>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-title">
+        <small>Bonjour, je suis</small>
+        <h1>Bel<span style="color: #e4486b;">'</span>Ana</h1>
+        <svg class="wave" viewBox="0 0 96 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 5c4-6 8-6 12 0s8 6 12 0 8-6 12 0 8 6 12 0 8-6 12 0 8 6 12 0"/></svg>
+        <p class="fullname"><span style="color:#4a3d42;font-size:25px;"><span style="font-weight:800;">DAGBAN</span> Bélinda Diana Ablavi</span></p>
+        <p>Lomé-Togo</p>
+      </div>
+      <div class="arch"><img src="assets/belana-portrait-red.jpeg" alt="Portrait de Bel’Ana en robe rouge, souriante, les bras croisés"></div>
+      <div class="hero-text">
+        <h2>Artiste chanteuse, juriste d’entreprise et entrepreneure</h2>
+        <p>Un parcours pluriel à la croisée de la créativité, de l’expertise juridique et de l’initiative entrepreneuriale.</p>
+        <a class="btn" href="#parcours">Découvrir mon parcours</a>
+      </div>
+    </div>
+  </div>
+  <div class="tab" aria-label="project">
+    <a href="https://youtube.com/@belana_music?si=8n47Lt1KPTvbmDlI" target="_blank" rel="noopener" aria-label="Suivre Bel’Ana sur YouTube" w>
+      <img src="assets/B-Baniere.jpg" alt="">
+    </a>
+  </div>
+</header>
+</div>
+
+<main>
+<section class="section wrap" id="profil">
+  <div class="about">
+    <div class="about-text">
+      <p>Trois univers, une même exigence : créer, structurer, entreprendre.</p>
+      <p>Chanteuse, interprète et auteure-compositrice, j’explore le RnB, le tradi-moderne, les variétés et la world music. Juriste d’entreprise spécialisée en transports et logistique, j’aborde les enjeux professionnels avec rigueur et pragmatisme.</p>
+      <p>J’y ajoute un esprit d’initiative : des activités à développer et des collaborations à ouvrir.</p>
+      <div class="tags" aria-label="Domaines">
+        <span>RnB</span><span>Tradi-moderne</span><span>Variétés</span><span>World music</span>
+        <span class="law">Droit d’entreprise</span><span class="law">Transports</span><span class="law">Logistique</span>
+      </div>
+    </div>
+    <aside class="dark-card">
+      <img src="assets/belana-portrait-2.jpeg" alt="portrait de Bel’Ana">
+      <div><h3>Une voix venue de Lomé</h3><p>Une musique authentique, nourrie de plusieurs influences, portée sur scène depuis 2016.</p></div>
+    </aside>
+  </div>
+</section>
+
+<section class="wrap" id="parcours" aria-label="Parcours musical">
+  <div class="story" role="region" aria-roledescription="carrousel" aria-label="Étapes du parcours musical">
+    <div class="dots" id="dots"></div>
+    <article class="slide on"><img src="assets/Bel'Ana-Section-1.jpg" alt="Portrait de Bel’Ana, la main sur la joue"><div><div class="year">2016</div><p>Découverte du rap et création du groupe BMG avec deux autres artistes.</p></div></article>
+    <article class="slide"><img src="assets/Bel'Ana-Section-2.jpg" alt="Portrait de Bel’Ana en rouge"><div><div class="year">2018</div><p>Début des projets solos, avec un intérêt pour l’accompagnement et la promotion d’artistes.</p></div></article>
+    <article class="slide"><img src="assets/belana-Section-3.jpeg" alt="Bel’Ana en prestation avec ses musiciens"><div><div class="year">2023</div><p>Concert de l'<em>INDEPENDANCE</em> du 27 Avril.</p></div></article>
+    <article class="slide"><img src="assets/belana-section-4.jpeg" alt="Bel’Ana sur une moto"><div><div class="year">2024</div><p>Lancement du projet audiovisuel <em>Miadomé</em>, le 12 décembre.</p></div></article>
+    <div class="arrows">
+      <button type="button" id="prev" aria-label="Étape précédente">←</button>
+      <button type="button" id="next" aria-label="Étape suivante">→</button>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="musique">
+  <h2 class="title">Les projets musicaux</h2>
+  <p class="lead">Originaire de Lomé, Bel’Ana construit un univers nourri par différentes influences et par le désir de faire rayonner une musique authentique. Ses expériences comprennent des prestations scéniques, des invitations et des apparitions médiatiques.</p>
+  <div class="projects">
+    <a class="project p1" href="https://youtu.be/OllMHSMJ8IU?si=OonP_PSZukgze_0v" target="_blank" rel="noopener" aria-label="Regarder OBADA sur YouTube" w>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px"><div><div class="meta">25 août 2023 · Projet audio</div><h3>OBADA </h3></div>
+      <img src="assets/Obada.jpeg" alt="Portrait de Bel’Ana" style="width: 150px; height: 150px; object-fit: cover; border-radius: 12px; flex-shrink: 0;">
+    </div>
+      <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
+    </a>
+    <a class="project p2" href="https://youtu.be/PR80KWPuhQM?si=3TTxI9GLaOKPe1mV" target="_blank" rel="noopener" aria-label="Regarder Miadomé sur YouTube">
+      <div><div class="meta">12 décembre 2024 · Clip vidéo</div><h3>Miadomé</h3></div>
+      <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
+    </a>
+  </div>
+  <div class="music-foot">
+    <p>Tous les clips et projets sont sur la chaîne officielle.</p>
+    <a class="btn ghost" href="https://youtube.com/@belana_music?si=rZKa6WqP8MRPYhHN" target="_blank" rel="noopener">Visiter la chaîne YouTube ↗</a>
+  </div>
+</section>
+
+<section class="section wrap" id="droit">
+  <div class="law-grid">
+    <img src="assets/belana-graduation.jpeg" alt="Bel’Ana en toge bordeaux lors de sa remise de diplôme">
+    <div>
+      <h2 class="title">Le droit au service des entreprises</h2>
+      <p class="lead">Formée en droit, je m’intéresse aux questions juridiques liées aux activités des entreprises, au transport et à la logistique.</p>
+      <ul class="law-list">
+        <li><strong>Entreprise</strong><span>Analyse, rigueur et compréhension des enjeux professionnels.</span></li>
+        <li><strong>Transports</strong><span>Une spécialisation en droit des transports.</span></li>
+        <li><strong>Logistique</strong><span>Une approche pragmatique des activités logistiques.</span></li>
+      </ul>
+      <p class="small">Cette présentation ne constitue pas une offre de conseil juridique. Les fonctions, projets et réalisations pourront être détaillés une fois leur publication confirmée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="entrepreneuriat">
+  <div class="biz">
+    <div><h2 class="title">Entrepreneuriat</h2><p class="lead">Cette rubrique présentera les activités opérationnelles, leur offre et leurs moyens de contact.</p></div>
+    <div class="note"><strong>Rubrique en préparation</strong><p>Les activités seront ajoutées après confirmation de leurs noms, de leur offre et de leurs coordonnées. Aucun projet en préparation n’est présenté comme déjà lancé.</p></div>
+  </div>
+</section>
+<section class="section wrap" id="galerie">
+  <h2 class="title">Portraits et scènes</h2>
+  <div class="gallery">
+
+    <!-- COLONNE 1 : PORTRAITS (format portrait) -->
+    <div class="gcol">
+      <h3>Portraits</h3>
+      <div class="gcar portrait" role="region" aria-roledescription="carrousel" aria-label="Portraits de Bel’Ana">
+        <div class="gcount"></div>
+        <div class="gslide on"><img src="assets/belana-Portrait-1.jpeg" alt="Portrait 1 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Portrait-2.jpeg" alt="Portrait 2 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Portrait-3.jpeg" alt="Portrait 3 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Portrait-4.jpeg" alt="Portrait 4 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Portrait-5.jpeg" alt="Portrait 5 de Bel’Ana" loading="lazy"></div>
+        <div class="gbtns">
+          <button type="button" class="gprev" aria-label="Portrait précédent">← Précédent</button>
+          <button type="button" class="gnext" aria-label="Portrait suivant">Suivant →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLONNE 2 : SCÈNES (format paysage) -->
+    <div class="gcol">
+      <h3>Scènes</h3>
+      <div class="gcar landscape" role="region" aria-roledescription="carrousel" aria-label="Scènes de Bel’Ana">
+        <div class="gcount"></div>
+        <div class="gslide on"><img src="assets/belana-Scene-1.jpeg" alt="Scène 1 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Scene-2.jpeg" alt="Scène 2 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Scene-3.jpeg" alt="Scène 3 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Scene-4.jpeg" alt="Scène 4 de Bel’Ana" loading="lazy"></div>
+        <div class="gslide"><img src="assets/belana-Scene-5.jpeg" alt="Scène 5 de Bel’Ana" loading="lazy"></div>
+        <div class="gbtns">
+          <button type="button" class="gprev" aria-label="Scène précédente">← Précédent</button>
+          <button type="button" class="gnext" aria-label="Scène suivante">Suivant →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="wrap" id="logo" style="display:flex; justify-content:center; align-items:center; padding-top: 20px; padding-bottom: 0;">
+  <div class="logo-container">
+    <video autoplay muted loop playsinline aria-label="logo de Bel’Ana" style="max-width: 500px; width: 100%; height: auto; display: block;mix-blend-mode: multiply;">
+      <source src="assets/Belana-2.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+<section class="wrap" id="contact">
+  <div class="contact">
+    <div style="grid-column: 1/-1;text-align: center;">
+      <h2>Booking<b>.</b></h2>
+      <p class="lead" style="text-align: center;margin-left: auto;margin-right: auto;"> Propositions artistiques, Collaborations, Prestations, Echanges professionnels et Partenariats.</p>
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center;">
+      <img src="assets/BEL'ANA-BOOKING.png" alt="Affiche Booking" style="width: 100%; max-width: 290px; height: auto; border-radius: 8px;">
+    </div>
+    <ul>
+      <li><a href="mailto:belanamusictg@gmail.com">belanamusictg@gmail.com<span>E-mail ↗</span></a></li>
+      <li><a href="tel:+22891191914">+228 91 19 19 14<span>Téléphone ↗</span></a></li>
+      <li><a href="https://www.instagram.com/bel_ana_nani/" target="_blank" rel="noopener">@bel_ana_nani<span>Instagram ↗</span></a></li>
+      <li><a href="https://www.tiktok.com/@bel_ana38" target="_blank" rel="noopener">@bel_ana38<span>TikTok ↗</span></a></li>
+      <li><a href="https://youtube.com/@belana_music?si=rZKa6WqP8MRPYhHN" target="_blank" rel="noopener">@belana_music<span>YouTube ↗</span></a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="wrap"><span>© Bel’Ana · Portfolio professionnel</span><span>Lomé-Togo</span></footer>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=document.getElementById('dots'),i=0,timer;
+  slides.forEach(function(_,n){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Étape '+(n+1));b.onclick=function(){go(n,true)};dots.appendChild(b)});
+  function go(n,user){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    [].forEach.call(dots.children,function(d,k){d.setAttribute('aria-current',k===i)});
+    if(user)clearInterval(timer);
+  }
+  document.getElementById('prev').onclick=function(){go(i-1,true)};
+  document.getElementById('next').onclick=function(){go(i+1,true)};
+  go(0);
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){timer=setInterval(function(){go(i+1)},6500)}
+})();
+
+/* Carrousels Portraits & Scènes */
+(function(){
+  [].forEach.call(document.querySelectorAll('.gcar'),function(car){
+    var s=[].slice.call(car.querySelectorAll('.gslide')),
+        c=car.querySelector('.gcount'),
+        k=0, timer;
+
+    function show(n){
+      k=(n+s.length)%s.length;
+      s.forEach(function(el,j){el.classList.toggle('on',j===k)});
+      c.textContent=(k+1)+' / '+s.length;
+    }
+    function stop(){clearInterval(timer)}
+    function start(){
+      stop();
+      if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+        timer=setInterval(function(){show(k+1)},3000);
+      }
+    }
+
+    car.querySelector('.gprev').onclick=function(){show(k-1);start()};
+    car.querySelector('.gnext').onclick=function(){show(k+1);start()};
+    car.addEventListener('mouseenter',stop);
+    car.addEventListener('mouseleave',start);
+
+    show(0);
+    start();
+  });
+})();
+</script>
+</body>
+</html>
