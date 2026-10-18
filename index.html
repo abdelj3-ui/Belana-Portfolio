@@ -238,6 +238,23 @@ img, video{ max-width:100%; height:auto; }
     margin:0 auto;
   }
 }
+/* Bandeau Bel'Ana réduit de 75 % sur téléphone */
+@media (max-width:768px){
+  .tab{
+    width:69vw !important;      /*92vw x 0,75 */
+    max-width:443px !important; /*591px x 0,75 */
+    height:auto !important;
+    aspect-ratio:auto !important;
+    min-height:0 !important;
+    aspect-ratio: 591/147;
+  }
+  .tab img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain;
+  }
+}
+
 
 /* Accueil centré sur téléphone (l'ordinateur reste inchangé) */
 @media (max-width:768px){
