@@ -63,14 +63,13 @@ p{margin:0}
 .hero-text p{margin:14px 0 22px;color:#4a3d42;font-size:.98rem;max-width:34ch}
 
 /* Onglet de vignettes */
-.tab{position:absolute;left:50%;bottom:0;transform:translateX(-50%);background:var(--paper);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:16px 16px 0;display:flex;gap:12px}
+.tab{position:absolute;left:50%;bottom:0;transform:translateX(-50%);background:var(--paper);border-radius:var(--r-lg) var(--r-lg) 0 0;padding:16px 16px 0;display:flex;gap:12px;width: min(559px,92vw);box-sizing: border-box}
 .tab::before,.tab::after{content:"";position:absolute;bottom:0;width:30px;height:30px}
 .tab::before{left:-30px;background:radial-gradient(circle at 0 0,transparent 29px,var(--paper) 30px)}
 .tab::after{right:-30px;background:radial-gradient(circle at 100% 0,transparent 29px,var(--paper) 30px)}
-.tab a{display:block;width:559px;height:131px;aspect-ratio:1.3;border-radius:16px 16px 0 0;overflow:hidden;background:#ddd}
-.tab img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tab a{display:block;width:100%;aspect-ratio:559/131;border-radius:16px 16px 0 0;overflow:hidden;background:#ddd}
+.tab img{display: block; width:100%;height:auto;object-fit:contain;transition:transform .5s}
 .tab a:hover img{transform:scale(1.06)}
-.tab a:nth-child(1) img{object-position:center 22%}.tab a:nth-child(2) img{object-position:center 18%}.tab a:nth-child(3) img{object-position:center 15%}
 
 /* Entrée de page (seule animation automatique) */
 @media (prefers-reduced-motion:no-preference){
@@ -288,6 +287,27 @@ img, video{ max-width:100%; height:auto; }
   }
 }
 
+/* ===== Interface téléphone / tablette — sections Profil, Musique, Droit, Entrepreneuriat
+   (reprise de belana_portfolio_v2, images et textes de belana_v2 conservés) ===== */
+.project-head{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.project-head img{width:150px;height:150px;object-fit:cover;border-radius:12px;flex-shrink:0}
+@media (max-width:900px){
+  /* Profil, Droit, Entrepreneuriat : colonnes empilées */
+  .about,.law-grid,.biz{grid-template-columns:1fr}
+  .about{gap:36px}
+  /* Musique : cartes empilées */
+  .projects{grid-template-columns:1fr}
+  .project-head{flex-wrap:wrap}
+  .project-head img{width:130px;height:130px}
+  .project h3{font-size:clamp(2.2rem,5vw,3.8rem)}
+  /* Entrepreneuriat : bloc rose compact */
+  .biz{padding:36px 26px;margin-top:72px}
+  /* Droit : liste verticale */
+  .law-list li{flex-direction:column;gap:2px}
+  /* Espacement des sections */
+  #profil.section,#musique.section,#droit.section{padding-top:72px}
+}
+
 </style>
 </head>
 <body>
@@ -319,8 +339,8 @@ img, video{ max-width:100%; height:auto; }
     </div>
   </div>
   <div class="tab" aria-label="project">
-    <a href="https://youtube.com/@belana_music?si=8n47Lt1KPTvbmDlI" target="_blank" rel="noopener" aria-label="Suivre Bel’Ana sur YouTube" w>
-      <img src="assets/B-Baniere.jpg" alt="">
+    <a class="tab-link" href="https://youtube.com/@belana_music?si=8n47Lt1KPTvbmDlI" target="_blank" rel="noopener" aria-label="Suivre Bel’Ana sur YouTube" w>
+      <img class="tab-img" src="assets/belana-baniere.jpeg" alt="baniere belana" style="display: block; width: 100%; height: auto; object-fit: cover;">
     </a>
   </div>
 </header>
@@ -363,15 +383,15 @@ img, video{ max-width:100%; height:auto; }
   <h2 class="title">Les projets musicaux</h2>
   <p class="lead">Originaire de Lomé, Bel’Ana construit un univers nourri par différentes influences et par le désir de faire rayonner une musique authentique. Ses expériences comprennent des prestations scéniques, des invitations et des apparitions médiatiques.</p>
   <div class="projects">
-    <a class="project p1" href="https://youtu.be/OllMHSMJ8IU?si=OonP_PSZukgze_0v" target="_blank" rel="noopener" aria-label="Regarder OBADA sur YouTube" w>
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px"><div><div class="meta">25 août 2023 · Projet audio</div><h3>OBADA </h3></div>
-      <img src="assets/Obada.jpeg" alt="Portrait de Bel’Ana" style="width: 150px; height: 150px; object-fit: cover; border-radius: 12px; flex-shrink: 0;">
+    <a class="project p1" href="https://youtu.be/OllMHSMJ8IU?si=OonP_PSZukgze_0v" target="_blank" rel="noopener" aria-label="Regarder OBADA sur YouTube">
+      <div class="project-head"><div><div class="meta">25 août 2023 · Projet audio</div><h3>OBADA</h3></div>
+      <img src="assets/Obada.jpeg" alt="Portrait de Bel’Ana" >
     </div>
       <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
     </a>
     <a class="project p2" href="https://youtu.be/PR80KWPuhQM?si=3TTxI9GLaOKPe1mV" target="_blank" rel="noopener" aria-label="Regarder Miadomé sur YouTube">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px"><div><div class="meta">12 décembre 2024 · Clip vidéo</div><h3>Miadomé</h3></div>
-      <img src="assets/Miadome.jpeg" alt="Portrait de Bel’Ana" style="width: 150px; height: 150px; object-fit: cover; border-radius: 12px; flex-shrink: 0;">
+      <div class="project-head"><div><div class="meta">12 décembre 2024 · Clip vidéo</div><h3>Miadomé</h3></div>
+      <img src="assets/Miadome.jpeg" alt="Portrait de Bel’Ana" >
       </div>
       <div class="go"><span>Regarder sur YouTube</span><span aria-hidden="true">↗</span></div>
     </a>
